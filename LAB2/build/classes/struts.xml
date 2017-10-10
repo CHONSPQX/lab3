@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant> 
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.locale" value="zh"/>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.mapper.alwaysSelectFullNamespace" value="false" />
+	<package name="action" extends="struts-default">
+		<action name="authoraction" class="Action.AuthorAction">
+			<result name="author_create_success">/authorcreate.jsp</result>
+			<result name="author_create_error">/authorcreate.jsp</result>
+		</action>		
+		<action name="bookaction" class="Action.BookAction">
+			<result name="book_create_success">/bookcreate.jsp</result>
+			<result name="book_create_error">/bookcreate.jsp</result>
+			<result name="book_update_success">/bookupdate.jsp</result>
+			<result name="book_update_error">/bookupdate.jsp</result>
+			<result name="book_delete_success">/tables.jsp</result>
+			<result name="book_delete_error">/tables.jsp</result>
+		</action>
+		<action name="listaction" class="Action.ListAction">
+			<result name="list_retrieve_success">/booksearch.jsp</result>
+			<result name="list_retrieve_error">/booksearch.jsp</result>
+			<result name="info_retrieve_success">/bookinfo.jsp</result>
+			<result name="info_retrieve_error">/bookinfo.jsp</result>
+		</action>			
+		<action name="adminaction" class="Action.AdminAction">
+			<result name="admin_check_success">/login.jsp</result>
+			<result name="admin_check_error">/login.jsp</result>
+		</action>	
+	</package>
+	<package name="User" extends="json-default">
+    <action name="ajaxcheck" class="Action.AjaxCheck" >
+        <result type="json">
+            <param name="location">result</param>
+        </result>
+    </action>
+  </package>
+</struts>    
